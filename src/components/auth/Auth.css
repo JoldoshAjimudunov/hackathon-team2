@@ -1,0 +1,239 @@
+@import url(//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti);
+@font-face {
+  font-family: "Sprite Graffiti";
+  src: url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.eot");
+  src: url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.svg#Sprite Graffiti")
+      format("svg");
+}
+.container {
+  display: flex;
+  /* justify-content: center; */
+  /* width: 1550px; */
+  height: 1000px;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  flex-direction: column;
+  align-items: center;
+
+  /* filter: blur(10px); */
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(200px);
+}
+.inp__cont {
+  width: 517px;
+  height: 723px;
+  max-height: 763px;
+  /* left: 702px;
+  top: 266px; */
+  background: #ddd1d1;
+  /* border: 10px solid #301b39; */
+  /* filter: blur(10px); */
+  border-radius: 148px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0px 0px 10px 10px #301b39, 0px 0px 10px 10px #301b39;
+}
+.inp-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 325px;
+  height: 49px;
+  padding-left: 20px;
+  background: #d9d9d9;
+  border: 1px solid #301a38;
+  border-radius: 36px;
+}
+.reg__btn {
+  background: #351d3f;
+  border-radius: 60px;
+  color: #ffffff;
+  width: 276px;
+  height: 55px;
+}
+
+.inp__text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+
+  color: #ffffff;
+
+  text-shadow: 0px 80px 50px rgba(0, 0, 0, 0.7);
+}
+.inp__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-height: 763px;
+}
+.title {
+  font-family: "Sprite Graffiti";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 64px;
+  color: #ae3559;
+  margin: 0 0 20px 0;
+}
+h1::first-letter {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 200px;
+  line-height: 200px;
+  color: #6e2147;
+}
+.inp__title {
+  width: 200px;
+  height: 17px;
+  /* left: 811px;
+top: 342px; */
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 17px;
+  /* identical to box height */
+  margin: 0 0 10px 20px;
+  color: #000000;
+}
+.eclipse {
+  position: absolute;
+  width: 283px;
+  height: 283px;
+  left: 1361px;
+  top: 299px;
+  filter: blur(150px);
+
+  background: #ae3559;
+}
+.eclipse2 {
+  position: absolute;
+  width: 183px;
+  height: 183px;
+  left: 64px;
+  top: 167px;
+  filter: blur(150px);
+
+  background: #eb5e64;
+}
+.eclipse3 {
+  position: absolute;
+  width: 183px;
+  height: 183px;
+  left: 232px;
+  top: 638px;
+  filter: blur(150px);
+
+  background: #6e2147;
+}
+
+/* login */
+
+.inp__cont2 {
+  width: 517px;
+  height: 423px;
+  max-height: 763px;
+  background: #ddd1d1;
+  border-radius: 148px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0px 0px 10px 10px #301b39, 0px 0px 10px 10px #301b39;
+}
+.inp__cont3 {
+  width: 517px;
+  height: 323px;
+  max-height: 763px;
+  background: #ddd1d1;
+  border-radius: 148px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0px 0px 10px 10px #301b39, 0px 0px 10px 10px #301b39;
+}
+
+@media (max-width: 1000px) {
+  .inp__cont {
+    width: 400px;
+  }
+  .inp__cont2 {
+    width: 400px;
+  }
+  .inp__cont3 {
+    width: 400px;
+  }
+  .inp__form {
+    width: 50%;
+    height: 50%;
+  }
+  .input {
+    width: 270px;
+  }
+  .title {
+    width: 100px;
+    font-size: 60px;
+    margin-left: -200px;
+  }
+  h1::first-letter {
+    font-size: 150px;
+  }
+  .reg__btn {
+    width: 260px;
+    padding: 10px;
+  }
+  .eclipse2 {
+    display: none;
+  }
+  .eclipse3 {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .inp__cont {
+    width: 300px;
+    border-radius: 100px;
+  }
+  .inp__cont2 {
+    width: 300px;
+    border-radius: 100px;
+  }
+  .inp__cont3 {
+    width: 300px;
+    border-radius: 100px;
+  }
+  .input {
+    width: 200px;
+  }
+  .eclipse {
+    display: none;
+  }
+  .eclipse2 {
+    display: none;
+  }
+  .eclipse3 {
+    display: none;
+  }
+  .reg__btn {
+    width: 200px;
+    margin-left: -20px;
+  }
+}
