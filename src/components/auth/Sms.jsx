@@ -6,23 +6,17 @@ import "./Auth.css";
   type="text/css"
 />;
 
-const Login = () => {
+const Sms = () => {
   return (
     <div className="container">
       <h1 className="title">Jellyfish</h1>
-      <div className="inp__cont2">
+      <div className="inp__cont3">
         <form className="inp__form">
           <div className="inp-box">
             <label className="inp__title" htmlFor="email">
               Ваша почта
             </label>
             <input className="input" type="email" />
-          </div>
-          <div className="inp-box">
-            <label className="inp__title" htmlFor="password">
-              Пароль
-            </label>
-            <input className="input" type="password" />
           </div>
 
           <button className="reg__btn" type="submit">
@@ -37,4 +31,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Sms;

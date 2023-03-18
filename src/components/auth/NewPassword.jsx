@@ -6,21 +6,21 @@ import "./Auth.css";
   type="text/css"
 />;
 
-const Login = () => {
+const NewPassword = () => {
   return (
     <div className="container">
       <h1 className="title">Jellyfish</h1>
       <div className="inp__cont2">
         <form className="inp__form">
           <div className="inp-box">
-            <label className="inp__title" htmlFor="email">
-              Ваша почта
+            <label className="inp__title" htmlFor="password">
+              Новый пароль
             </label>
-            <input className="input" type="email" />
+            <input className="input" type="password" />
           </div>
           <div className="inp-box">
             <label className="inp__title" htmlFor="password">
-              Пароль
+              Потвердите Пароль
             </label>
             <input className="input" type="password" />
           </div>
@@ -37,4 +37,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default NewPassword;

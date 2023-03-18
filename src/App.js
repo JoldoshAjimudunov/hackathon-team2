@@ -1,5 +1,4 @@
 import "./App.css";
-import Register from "./components/auth/Register";
 import MainRoutes from "./MainRoutes";
 
 function App() {
