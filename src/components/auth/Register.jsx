@@ -43,7 +43,7 @@ const Register = () => {
             <input className="input" type="password" />
           </div>
           <button className="reg__btn" type="submit">
-            <span className="inp__text">зарегистрироваться</span>
+            <span className="inp__text__reg">зарегистрироваться</span>
           </button>
         </form>
       </div>
