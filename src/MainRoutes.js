@@ -4,11 +4,13 @@ import Login from "./components/auth/Login";
 import NewPassword from "./components/auth/NewPassword";
 import Register from "./components/auth/Register";
 import Sms from "./components/auth/Sms";
+import Welcome from "./components/auth/Welcome";
 
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Register />} />
+      <Route path="/" element={<Welcome />} />
+      <Route path="register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/newpassword" element={<NewPassword />} />
       <Route path="/sms" element={<Sms />} />
