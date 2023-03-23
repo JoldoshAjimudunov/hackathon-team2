@@ -196,6 +196,7 @@ top: 342px; */
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 1000px) {
@@ -266,5 +267,15 @@ top: 342px; */
   }
   .inp__text__reg {
     font-size: 15px;
+  }
+  .welcome__cont {
+    justify-content: center;
+    align-items: center;
+  }
+  .welcome__btns {
+    width: 300px;
+    justify-content: space-between;
+    height: 150px;
+    margin-left: 50px;
   }
 }
