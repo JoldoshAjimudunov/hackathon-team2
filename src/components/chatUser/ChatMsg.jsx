@@ -1,8 +1,10 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import { Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
+import { useChat } from "../contexts/ChatContextProvider";
 
 const ChatMsg = ({ item }) => {
+  const {} = useChat();
   const StyledPaper = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -10,6 +12,7 @@ const ChatMsg = ({ item }) => {
     maxWidth: 400,
     color: theme.palette.text.primary,
   }));
+  const { messages } = useChat();
   return (
     <div>
       <StyledPaper
@@ -24,8 +27,12 @@ const ChatMsg = ({ item }) => {
       >
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item xs zeroMinWidth>
-            {/* <Typography noWrap>{item.message}</Typography> */}
-            <Typography noWrap>message</Typography>
+            {/* <Box>
+              {messages?.map((item) => (
+                <Typography key={item.id} item={item} />
+              ))}
+            </Box> */}
+            <Typography noWrap>{item.message}</Typography>
           </Grid>
         </Grid>
       </StyledPaper>

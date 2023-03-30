@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { Avatar, Button, Grid, Menu, MenuItem, Paper } from "@mui/material";
@@ -14,6 +14,8 @@ import MicIcon from "@mui/icons-material/Mic";
 import { styled } from "@mui/material/styles";
 import { useChat } from "../contexts/ChatContextProvider";
 import ChatMsg from "./ChatMsg";
+import Profile from "./Profile";
+import { useSearchParams } from "react-router-dom";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -25,28 +27,30 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 const ChatUser = () => {
   // ///////////////////////////////
-  const { addMessages } = useChat();
+  const { addMessages, messages, getMessages } = useChat();
+  const [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    getMessages();
+  }, []);
+
+  useEffect(() => {
+    getMessages();
+  }, [searchParams]);
 
   const [message, setMessage] = useState({
     message: "",
   });
 
+  const [profile, setProfile] = useState(false);
+  // const memoArr = useMemo(() => messages, [messages]);
+  console.log(messages);
+
   const handleChange = (e) => {
-    // if (e.target.name === "image") {
-    //   setMessage({
-    //     ...message,
-    //     [e.target.name]: e.target.files[0],
-    //   });
-    // } else {
-    //   setMessage({
-    //     ...message,
-    //     [e.target.name]: e.target.value,
-    //   });
-    // }
     setMessage({
       ...message,
       [e.target.name]: e.target.value,
     });
+    e.preventDefault();
   };
 
   function handleSave() {
@@ -71,20 +75,22 @@ const ChatUser = () => {
     >
       <AppBar sx={{ width: "100%", bgcolor: "white" }}>
         <Toolbar>
-          <Avatar />
+          <Box onClick={() => setProfile((current) => !current)}>
+            <Avatar />
+          </Box>
           <ListItemText sx={{ color: "#141414" }}>
             <Grid container>
-              <Grid ml={5} xs={6}>
+              <Grid item ml={5} xs={6}>
                 <Typography variant={"h6"}>User name</Typography>
                 <Typography variant={"body2"}>в сети 2 часа назад</Typography>
               </Grid>
-              <Grid xs={1} textAlign={"center"}>
+              <Grid item xs={1} textAlign={"center"}>
                 <VideocamOutlinedIcon />
               </Grid>
-              <Grid xs={1}>
+              <Grid item xs={1}>
                 <CallIcon />
               </Grid>
-              <Grid xs={1} ml={-5}>
+              <Grid item xs={1} ml={-5}>
                 <MoreVertIcon onClick={handleClick} />
 
                 <Menu
@@ -117,68 +123,16 @@ const ChatUser = () => {
       </AppBar>
       {/* /////////////////// */}
       <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
-        {/* <StyledPaper
-          sx={{
-            my: 1,
-            mx: "auto",
-            p: 2,
-            marginTop: "30%",
-            marginLeft: "50%",
-            borderRadius: 35,
-          }}
-        >
-          <Grid container wrap="nowrap" spacing={2}>
-            <Grid item xs zeroMinWidth>
-              <Typography noWrap>ccczx</Typography>
-            </Grid>
-          </Grid>
-        </StyledPaper> */}
-        {/* <StyledPaper
-          sx={{
-            my: 1,
-            mx: "auto",
-            p: 2,
-            marginLeft: 10,
-            borderRadius: 35,
-          }}
-        >
-          <Grid container wrap="nowrap" spacing={2}>
-            <Grid item xs>
-              <Typography noWrap>dssdvsdvsv</Typography>
-            </Grid>
-          </Grid>
-        </StyledPaper> */}
-        {/* <StyledPaper
-          sx={{
-            my: 1,
-            mx: "auto",
-            p: 2,
-            marginLeft: "50%",
-            borderRadius: 35,
-          }}
-        >
-          <Grid container wrap="nowrap" spacing={2}>
-            <Grid item xs>
-              <Typography>knlihiilu</Typography>
-            </Grid>
-          </Grid>
-        </StyledPaper> */}
-        {/* <StyledPaper
-          sx={{
-            my: 1,
-            mx: "auto",
-            p: 2,
-            marginLeft: 10,
-            borderRadius: 35,
-          }}
-        >
-          <Grid container wrap="nowrap" spacing={2}>
-            <Grid item xs>
-              <Typography noWrap>dssdvsdvsv</Typography>
-            </Grid>
-          </Grid>
-        </StyledPaper> */}
-        <ChatMsg />
+        {profile ? (
+          <Profile />
+        ) : (
+          <Box>
+            {messages?.map((item) => (
+              <ChatMsg key={item.id} item={item} />
+            ))}
+          </Box>
+          // <ChatMsg />
+        )}
       </Box>
 
       <AppBar
@@ -188,11 +142,11 @@ const ChatUser = () => {
       >
         <Toolbar>
           <Grid container>
-            <Grid textAlign={"center"} p={1} xs={2}>
+            <Grid item textAlign={"center"} p={1} xs={2}>
               <AttachFileIcon sx={{ color: "#292D32", marginLeft: 10 }} />
               <KeyboardArrowDownIcon sx={{ color: "#292D32", marginLeft: 5 }} />
             </Grid>
-            <Grid xs={6}>
+            <Grid item xs={6}>
               <input
                 style={{
                   width: 630,
@@ -206,7 +160,7 @@ const ChatUser = () => {
               />
               <Button onClick={handleSave}>add</Button>
             </Grid>
-            <Grid xs={1}>
+            <Grid item xs={1}>
               <MicIcon sx={{ color: "#292D32", margin: 1 }} />
             </Grid>
           </Grid>

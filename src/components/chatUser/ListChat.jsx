@@ -11,13 +11,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Avatar, InputBase } from "@mui/material";
+import { Avatar, Button, InputBase } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import ChatUser from "./ChatUser";
 import { Link } from "react-router-dom";
 import { useChat } from "../contexts/ChatContextProvider";
+import { useAuth } from "../contexts/AuthContextProvider";
 
 const drawerWidth = "30%";
 
@@ -64,6 +65,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function ListChat() {
+  const { user, logout } = useAuth();
+
   const { messages } = useChat();
 
   const [blogUser, setBlogUser] = useState(true);
@@ -80,11 +83,6 @@ export default function ListChat() {
         </Box>
       ) : (
         <ChatUser />
-        // <Box>
-        //   {messages.map((item) => (
-        //     <ChatUser key={item.id} item={item} />
-        //   ))}
-        // </Box>
       )}
 
       <Drawer
@@ -110,6 +108,12 @@ export default function ListChat() {
             <ListItemButton>
               <MenuIcon sx={{ marginLeft: 5 }} color={"action"} />
             </ListItemButton>
+            <Button
+              onClick={() => logout()}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Logout
+            </Button>
           </Toolbar>
         </AppBar>
         <Toolbar />

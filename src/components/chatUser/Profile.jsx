@@ -20,45 +20,49 @@ const Profile = () => {
         </Typography>
       </Box>
 
-      <Box>
-        <Typography sx={{ m: "50px 0 50px 200px", width: "200px" }}>
-          +996 500 500 500
-        </Typography>
+      <Box sx={{ height: "500px", bgcolor: "white", ml: "-30px" }}>
+        <Box>
+          <Typography sx={{ m: "50px 0 50px 200px", width: "200px" }}>
+            +996 500 500 500
+          </Typography>
+        </Box>
+        <Grid container>
+          <Grid
+            container
+            item
+            xs
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            direction="column"
+          >
+            <Typography>bio</Typography>
+            <Typography
+              sx={{ width: "100px", height: "4px", color: "black" }}
+            />
+          </Grid>
+          <Grid
+            container
+            item
+            xs
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Typography>links</Typography>
+          </Grid>
+          <Grid
+            container
+            item
+            xs
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Typography>docs</Typography>
+          </Grid>
+        </Grid>
       </Box>
-      <Grid container>
-        <Grid
-          container
-          item
-          xs
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          direction="column"
-        >
-          <Typography>media</Typography>
-          <Typography sx={{ width: "100px", height: "4px", color: "black" }} />
-        </Grid>
-        <Grid
-          container
-          item
-          xs
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Typography>links</Typography>
-        </Grid>
-        <Grid
-          container
-          item
-          xs
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Typography>docs</Typography>
-        </Grid>
-      </Grid>
     </Box>
   );
 };

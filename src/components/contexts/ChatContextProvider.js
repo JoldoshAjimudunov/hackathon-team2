@@ -53,6 +53,8 @@ const ChatContextProvider = ({ children }) => {
   }
 
   async function getOneMessage(id) {
+    console.log(state.messages);
+
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
@@ -84,7 +86,6 @@ const ChatContextProvider = ({ children }) => {
 
       const res = await axios.post(`${API_MESSAGES}`, message, config);
       console.log(res.data);
-      //   navigate("/products");
     } catch (error) {
       console.log(error);
       setError(error);
