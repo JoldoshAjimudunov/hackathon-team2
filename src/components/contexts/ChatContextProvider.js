@@ -77,6 +77,40 @@ const ChatContextProvider = ({ children }) => {
     }
   }
 
+  async function editMessage(id, message) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API_MESSAGES}${id}/`, message, config);
+      getMessages();
+    } catch (e) {
+      console.log(e);
+      setError(e);
+    }
+  }
+
+  async function deleteMessage(id) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.delete(`${API_MESSAGES}${id}/`, config);
+      getMessages();
+    } catch (e) {
+      console.log(e);
+      setError(e);
+    }
+  }
+
   async function addMessages(message) {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -99,9 +133,10 @@ const ChatContextProvider = ({ children }) => {
     messages: state.messagesArray,
     oneMessage: state.oneMessage,
     getMessages,
-    // deleteProduct,
+    deleteMessage,
+
     // getOneProduct,
-    // editProduct,
+    editMessage,
     addMessages,
   };
   return <chatContext.Provider value={value}>{children}</chatContext.Provider>;

@@ -71,7 +71,7 @@ const ChatUser = () => {
   return (
     <Box
       component="main"
-      sx={{ flexGrow: 1, bgcolor: "#938888", p: 3, height: "100vh" }}
+      sx={{ flexGrow: 1, bgcolor: "#938888", p: 3, height: "500vh" }}
     >
       <AppBar sx={{ width: "100%", bgcolor: "white" }}>
         <Toolbar>
@@ -158,7 +158,9 @@ const ChatUser = () => {
                 value={message.message}
                 onChange={handleChange}
               />
-              <Button onClick={handleSave}>add</Button>
+              <Button type="submit" onClick={handleSave}>
+                add
+              </Button>
             </Grid>
             <Grid item xs={1}>
               <MicIcon sx={{ color: "#292D32", margin: 1 }} />
