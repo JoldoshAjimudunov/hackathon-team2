@@ -6,6 +6,7 @@ import Register from "./components/auth/Register";
 import Sms from "./components/auth/Sms";
 import Welcome from "./components/auth/Welcome";
 import ListChat from "./components/chatUser/ListChat";
+import Profile from "./components/chatUser/Profile";
 
 const MainRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const MainRoutes = () => {
       <Route path="/newpassword" element={<NewPassword />} />
       <Route path="/sms" element={<Sms />} />
       <Route path="/chat" element={<ListChat />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };
