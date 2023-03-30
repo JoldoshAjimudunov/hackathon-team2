@@ -8,20 +8,23 @@ export const chatContext = createContext();
 export const useChat = () => useContext(chatContext);
 
 const INIT_STATE = {
-  messages: [],
+  messagesArray: [],
   oneMessage: {},
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_MESSAGES":
+      console.log("get messages");
       return {
         ...state,
-        messages: action.payload.results,
+        messagesArray: action.payload,
       };
     case "GET_ONE_MESSAGE":
+      console.log("one");
       return { ...state, oneMessage: action.payload };
     default:
+      console.log("default");
       return state;
   }
 }
@@ -93,7 +96,7 @@ const ChatContextProvider = ({ children }) => {
   }
 
   const value = {
-    messages: state.messages,
+    messages: state.messagesArray,
     oneMessage: state.oneMessage,
     getMessages,
     // deleteProduct,

@@ -27,12 +27,13 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 const ChatUser = () => {
   // ///////////////////////////////
-  const { addMessages, messages, getMessages } = useChat();
+  const { addMessages, getMessages, messages } = useChat();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [profile, setProfile] = useState(false);
+
   useEffect(() => {
     getMessages();
   }, []);
-
   useEffect(() => {
     getMessages();
   }, [searchParams]);
@@ -40,17 +41,15 @@ const ChatUser = () => {
   const [message, setMessage] = useState({
     message: "",
   });
-
-  const [profile, setProfile] = useState(false);
-  // const memoArr = useMemo(() => messages, [messages]);
+  console.log(message);
   console.log(messages);
+  // const memoArr = useMemo(() => messages, [messages]);
 
   const handleChange = (e) => {
     setMessage({
       ...message,
       [e.target.name]: e.target.value,
     });
-    e.preventDefault();
   };
 
   function handleSave() {
@@ -67,6 +66,7 @@ const ChatUser = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  ///////////////////////
 
   return (
     <Box
@@ -127,9 +127,9 @@ const ChatUser = () => {
           <Profile />
         ) : (
           <Box>
-            {messages?.map((item) => (
-              <ChatMsg key={item.id} item={item} />
-            ))}
+            {messages
+              ? messages.map((msg) => <ChatMsg key={msg.id} msg={msg} />)
+              : console.log("something wrong")}
           </Box>
           // <ChatMsg />
         )}

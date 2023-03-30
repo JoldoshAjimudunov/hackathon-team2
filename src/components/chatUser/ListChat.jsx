@@ -74,7 +74,7 @@ export default function ListChat() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      {blogUser == true ? (
+      {blogUser === true ? (
         <Box
           component="main"
           sx={{ flexGrow: 1, bgcolor: "#938888", p: 3, height: "100vh" }}
