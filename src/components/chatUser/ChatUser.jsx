@@ -14,7 +14,7 @@ import MicIcon from "@mui/icons-material/Mic";
 import { styled } from "@mui/material/styles";
 import { useChat } from "../contexts/ChatContextProvider";
 import ChatMsg from "./ChatMsg";
-import Profile from "./Profile";
+import Profile from "../profile/Profile";
 import { useSearchParams } from "react-router-dom";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -29,7 +29,7 @@ const ChatUser = () => {
   // ///////////////////////////////
   const { addMessages, getMessages, messages } = useChat();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [profile, setProfile] = useState(false);
+  // const [profile, setProfile] = useState(false);
 
   useEffect(() => {
     getMessages();
@@ -75,7 +75,9 @@ const ChatUser = () => {
     >
       <AppBar sx={{ width: "100%", bgcolor: "white" }}>
         <Toolbar>
-          <Box onClick={() => setProfile((current) => !current)}>
+          <Box
+          //  onClick={() => setProfile((current) => !current)}
+          >
             <Avatar />
           </Box>
           <ListItemText sx={{ color: "#141414" }}>
@@ -123,16 +125,15 @@ const ChatUser = () => {
       </AppBar>
       {/* /////////////////// */}
       <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
-        {profile ? (
+        {/* {profile ? (
           <Profile />
-        ) : (
-          <Box>
-            {messages
-              ? messages.map((msg) => <ChatMsg key={msg.id} msg={msg} />)
-              : console.log("something wrong")}
-          </Box>
-          // <ChatMsg />
-        )}
+        ) : ( */}
+        <Box>
+          {messages
+            ? messages.map((msg) => <ChatMsg key={msg.id} msg={msg} />)
+            : console.log("something wrong")}
+        </Box>
+        ){/* } */}
       </Box>
 
       <AppBar
@@ -159,7 +160,7 @@ const ChatUser = () => {
                 onChange={handleChange}
               />
               <Button type="submit" onClick={handleSave}>
-                add
+                send
               </Button>
             </Grid>
             <Grid item xs={1}>

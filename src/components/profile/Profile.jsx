@@ -1,8 +1,48 @@
 import { Grid, Typography } from "@mui/material";
 import { bgcolor, Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
+import { useProfile } from "../contexts/ProfileContextProvider";
+import UserProfiles from "./UserProfiles";
 
 const Profile = () => {
+  const { getProfiles, profiles, editProfile } = useProfile();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const params = useParams();
+
+  useEffect(() => {
+    getProfiles();
+  }, []);
+  useEffect(() => {
+    getProfiles();
+  }, [searchParams]);
+  console.log(profiles);
+
+  const [profile, setProfile] = useState({
+    username: "",
+    bio: "",
+  });
+
+  // let formData = new FormData();
+  // formData.append("username", profile.username);
+  // formData.append("bio", profile.bio);
+  // editProfile(params.id, formData);
+  // console.log(message);
+  // console.log(messages);
+  // const memoArr = useMemo(() => messages, [messages]);
+
+  // const handleChange = (e) => {
+  //   setMessage({
+  //     ...message,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
+  // function handleSave() {
+  //   let formData = new FormData();
+  //   formData.append("message", message.message);
+  //   addMessages(formData);
+  // }
   return (
     <Box>
       <Box
@@ -20,7 +60,21 @@ const Profile = () => {
         </Typography>
       </Box>
 
-      <Box sx={{ height: "500px", bgcolor: "white", ml: "-30px" }}>
+      <Box>
+        {profiles
+          ? profiles.map((prof) => <UserProfiles key={prof.id} prof={prof} />)
+          : console.log("something wrong")}
+      </Box>
+
+      <UserProfiles />
+    </Box>
+  );
+};
+
+export default Profile;
+
+{
+  /* <Box sx={{ height: "500px", bgcolor: "white", ml: "-30px" }}>
         <Box>
           <Typography sx={{ m: "50px 0 50px 200px", width: "200px" }}>
             +996 500 500 500
@@ -62,9 +116,8 @@ const Profile = () => {
             <Typography>docs</Typography>
           </Grid>
         </Grid>
-      </Box>
-    </Box>
-  );
-};
-
-export default Profile;
+      </Box> */
+}
+{
+  /* /////// */
+}
