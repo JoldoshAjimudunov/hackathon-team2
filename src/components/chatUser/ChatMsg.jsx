@@ -4,6 +4,8 @@ import { Box, Grid, Paper, Typography, Button } from "@mui/material";
 import { useChat } from "../contexts/ChatContextProvider";
 import { API_MESSAGES } from "../../const";
 import axios from "axios";
+import EditMsg from "./EditMsg";
+import { Link, useNavigate } from "react-router-dom";
 
 const ChatMsg = ({ msg }) => {
   const { deleteMessage } = useChat();
@@ -16,8 +18,10 @@ const ChatMsg = ({ msg }) => {
     maxWidth: 700,
     color: theme.palette.text.primary,
   }));
-  // const msgs = axios.get(`${API_MESSAGES}`);
-
+  // const editPage = () => {
+  //   navigate("/edit/:id");
+  // };
+  const navigate = useNavigate();
   return (
     <div>
       <StyledPaper
@@ -40,14 +44,19 @@ const ChatMsg = ({ msg }) => {
             </Box> */}
             {/* <Typography noWrap>{msgs}</Typography> */}
             <Typography noWrap>{msg.message}</Typography>
-            <Button
-              display="flex"
-              justifyContent="right"
-              size="small"
-              onClick={() => deleteMessage(msg.id)}
-            >
-              Delete
-            </Button>
+            <Box display="flex" justifyContent="start">
+              <Button
+                display="flex"
+                justifyContent="center"
+                size="small"
+                onClick={() => deleteMessage(msg.id)}
+              >
+                Delete
+              </Button>
+              <Link to={`/edit/${msg.id}`}>
+                <Button>Edit</Button>
+              </Link>
+            </Box>
           </Grid>
         </Grid>
       </StyledPaper>

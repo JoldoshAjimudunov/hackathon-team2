@@ -68,7 +68,7 @@ const ChatContextProvider = ({ children }) => {
       };
       const res = await axios(`${API_MESSAGES}${id}/`, config);
       dispatch({
-        type: "GET_ONE_MESSAGES",
+        type: "GET_ONE_MESSAGE",
         payload: res.data,
       });
     } catch (e) {
@@ -88,6 +88,7 @@ const ChatContextProvider = ({ children }) => {
       };
       const res = await axios.patch(`${API_MESSAGES}${id}/`, message, config);
       getMessages();
+      navigate("/chat");
     } catch (e) {
       console.log(e);
       setError(e);
@@ -135,7 +136,7 @@ const ChatContextProvider = ({ children }) => {
     getMessages,
     deleteMessage,
 
-    // getOneProduct,
+    getOneMessage,
     editMessage,
     addMessages,
   };

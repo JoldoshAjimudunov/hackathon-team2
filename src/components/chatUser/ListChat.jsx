@@ -19,6 +19,7 @@ import ChatUser from "./ChatUser";
 import { Link } from "react-router-dom";
 import { useChat } from "../contexts/ChatContextProvider";
 import { useAuth } from "../contexts/AuthContextProvider";
+import EditMsg from "./EditMsg";
 
 const drawerWidth = "30%";
 
@@ -78,9 +79,7 @@ export default function ListChat() {
         <Box
           component="main"
           sx={{ flexGrow: 1, bgcolor: "#938888", p: 3, height: "100vh" }}
-        >
-          <div>hello</div>
-        </Box>
+        ></Box>
       ) : (
         <ChatUser />
       )}
