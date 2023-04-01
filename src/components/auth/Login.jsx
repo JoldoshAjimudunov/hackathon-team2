@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import "./Auth.css";
 import { Link } from "react-router-dom";
-<link
-  href="//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti"
-  rel="stylesheet"
-  type="text/css"
-/>;
 
 const Login = () => {
   const { login } = useAuth();
