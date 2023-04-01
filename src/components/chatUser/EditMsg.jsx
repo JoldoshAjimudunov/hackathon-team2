@@ -16,6 +16,7 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  borderRadius: "50px",
 };
 const EditMsg = () => {
   // const [open, setOpen] = React.useState(false);
@@ -76,7 +77,7 @@ const EditMsg = () => {
             value={message.message}
             onChange={handleChange}
           />
-          <Button type="submit" onClick={handleSave}>
+          <Button type="submit" onClick={handleSave} sx={{ color: "#ae3559" }}>
             Edit Message
           </Button>
         </Box>

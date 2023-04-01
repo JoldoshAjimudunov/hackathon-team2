@@ -104,7 +104,10 @@ export default function ListChat() {
               </SearchIconWrapper>
               <StyledInputBase inputProps={{ "aria-label": "search" }} />
             </Search>
-            <ListItemButton>
+            <ListItemButton
+
+            // display="flex"
+            >
               <MenuIcon sx={{ marginLeft: 5 }} color={"action"} />
             </ListItemButton>
             <Button
@@ -118,7 +121,7 @@ export default function ListChat() {
         <Toolbar />
         <List sx={{ bgcolor: "#EDDBDB", height: "100vh" }}>
           {[
-            "user name",
+            "Group",
             // "user name",
             // "user name",
             // "user name",

@@ -85,7 +85,7 @@ const ProfileContextProvider = ({ children }) => {
       };
       const res = await axios.patch(`${API_PROFILE}${id}/`, profile, config);
       getProfiles();
-      // navigate("/chat");
+      navigate("/chat");
     } catch (e) {
       console.log(e);
       setError(e);

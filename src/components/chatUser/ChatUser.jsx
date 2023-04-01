@@ -16,6 +16,7 @@ import { useChat } from "../contexts/ChatContextProvider";
 import ChatMsg from "./ChatMsg";
 import Profile from "../profile/Profile";
 import { useSearchParams } from "react-router-dom";
+import "../styles/Chat.css";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -29,7 +30,7 @@ const ChatUser = () => {
   // ///////////////////////////////
   const { addMessages, getMessages, messages } = useChat();
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [profile, setProfile] = useState(false);
+  const [profilePage, setProfilePage] = useState(false);
 
   useEffect(() => {
     getMessages();
@@ -67,7 +68,15 @@ const ChatUser = () => {
     setAnchorEl(null);
   };
   ///////////////////////
+  const sortedMsgs = messages.sort((a, b) => a.id - b.id);
 
+  // const hover = {
+  //   backgroundColor: "#FFF",
+  //   "&:hover": {
+  //     //you want this to be the same as the backgroundColor above
+  //     backgroundColor: "black",
+  //   },
+  // };
   return (
     <Box
       component="main"
@@ -75,16 +84,19 @@ const ChatUser = () => {
     >
       <AppBar sx={{ width: "100%", bgcolor: "white" }}>
         <Toolbar>
-          <Box
-          //  onClick={() => setProfile((current) => !current)}
-          >
+          <Box onClick={() => setProfilePage((current) => !current)}>
             <Avatar />
           </Box>
           <ListItemText sx={{ color: "#141414" }}>
             <Grid container>
-              <Grid item ml={5} xs={6}>
-                <Typography variant={"h6"}>User name</Typography>
-                <Typography variant={"body2"}>в сети 2 часа назад</Typography>
+              <Grid
+                onClick={() => setProfilePage((current) => !current)}
+                item
+                ml={5}
+                xs={6}
+              >
+                <Typography variant={"h6"}>Group</Typography>
+                <Typography variant={"body2"}>info</Typography>
               </Grid>
               <Grid item xs={1} textAlign={"center"}>
                 <VideocamOutlinedIcon />
@@ -125,15 +137,15 @@ const ChatUser = () => {
       </AppBar>
       {/* /////////////////// */}
       <Box sx={{ flexGrow: 1, overflow: "hidden", px: 3 }}>
-        {/* {profile ? (
+        {profilePage ? (
           <Profile />
-        ) : ( */}
-        <Box>
-          {messages
-            ? messages.map((msg) => <ChatMsg key={msg.id} msg={msg} />)
-            : console.log("something wrong")}
-        </Box>
-        ){/* } */}
+        ) : (
+          <Box>
+            {messages
+              ? sortedMsgs.map((msg) => <ChatMsg key={msg.id} msg={msg} />)
+              : console.log("something wrong")}
+          </Box>
+        )}
       </Box>
 
       <AppBar
@@ -144,27 +156,34 @@ const ChatUser = () => {
         <Toolbar>
           <Grid container>
             <Grid item textAlign={"center"} p={1} xs={2}>
-              <AttachFileIcon sx={{ color: "#292D32", marginLeft: 10 }} />
+              <AttachFileIcon sx={{ color: "#292D32", marginLeft: 4 }} />
               <KeyboardArrowDownIcon sx={{ color: "#292D32", marginLeft: 5 }} />
             </Grid>
             <Grid item xs={6}>
               <input
-                style={{
-                  width: 630,
-                  height: 40,
-                  borderRadius: 35,
-                  borderColor: "#D9D9D9",
-                }}
+                className="chat__inp"
                 name="message"
                 value={message.message}
                 onChange={handleChange}
               />
-              <Button type="submit" onClick={handleSave}>
+              <Button
+                sx={{
+                  color: "black",
+                  background: "#ae3559",
+                  borderRadius: "60px",
+                  color: "#ffffff",
+                  cursor: "pointer",
+                  border: "none",
+                }}
+                variant="solid"
+                type="submit"
+                onClick={handleSave}
+              >
                 send
               </Button>
             </Grid>
             <Grid item xs={1}>
-              <MicIcon sx={{ color: "#292D32", margin: 1 }} />
+              <MicIcon sx={{ color: "#292D32", margin: 0.5 }} />
             </Grid>
           </Grid>
         </Toolbar>

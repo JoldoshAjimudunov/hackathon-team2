@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import "./Auth.css";
+import { Link } from "react-router-dom";
 <link
   href="//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti"
   rel="stylesheet"
@@ -32,7 +33,7 @@ const Register = () => {
       <h1 className="title">Jellyfish</h1>
       <div className="inp__cont">
         <form className="inp__form">
-          <div className="inp-box">
+          {/* <div className="inp-box">
             <label className="inp__title" htmlFor="name">
               Имя
             </label>
@@ -43,7 +44,7 @@ const Register = () => {
               Фамилия
             </label>
             <input className="input" type="text" />
-          </div>
+          </div> */}
           <div className="inp-box">
             <label className="inp__title" htmlFor="name">
               Ваша почта
@@ -80,6 +81,9 @@ const Register = () => {
           <button className="reg__btn" type="submit" onClick={handleSubmit}>
             <span className="inp__text__reg">зарегистрироваться</span>
           </button>
+          <Link style={{ marginTop: "10px" }} to={"/login"}>
+            <div>войти</div>
+          </Link>
         </form>
       </div>
       <div className="eclipse"></div>

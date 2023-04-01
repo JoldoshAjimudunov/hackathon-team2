@@ -124,6 +124,7 @@ const ChatContextProvider = ({ children }) => {
 
       const res = await axios.post(`${API_MESSAGES}`, message, config);
       console.log(res.data);
+      getMessages();
     } catch (error) {
       console.log(error);
       setError(error);
