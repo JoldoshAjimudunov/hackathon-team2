@@ -31,7 +31,7 @@
 }
 .inp__cont {
   width: 500px;
-  height: 620px;
+  height: 570px;
   max-height: 763px;
   /* left: 702px;
   top: 266px; */
@@ -67,6 +67,7 @@
   height: 55px;
   cursor: pointer;
   border: none;
+  margin-top: 5px;
 }
 
 .inp__text {

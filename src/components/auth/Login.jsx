@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import "./Auth.css";
+import { Link } from "react-router-dom";
 <link
   href="//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti"
   rel="stylesheet"
@@ -58,6 +59,9 @@ const Login = () => {
           <button className="reg__btn" type="submit" onClick={handleSubmit}>
             <span className="inp__text">войти</span>
           </button>
+          <Link style={{ marginTop: "10px" }} to={"/register"}>
+            <div>регистрация</div>
+          </Link>
         </form>
       </div>
       <div className="eclipse"></div>

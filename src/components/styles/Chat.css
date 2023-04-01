@@ -1,0 +1,23 @@
+.chat__inp {
+  width: 630px;
+  height: 40px;
+  border-radius: 35px;
+  border-color: "#D9D9D9";
+}
+@media (max-width: 1100px) {
+  .chat__inp {
+    width: 300px;
+    height: 40px;
+    border-radius: 35px;
+    border-color: "#D9D9D9";
+  }
+}
+
+@media (max-width: 800px) {
+  .chat__inp {
+    width: 200px;
+    height: 40px;
+    border-radius: 35px;
+    border-color: "#D9D9D9";
+  }
+}

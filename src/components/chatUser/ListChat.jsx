@@ -19,6 +19,7 @@ import ChatUser from "./ChatUser";
 import { Link } from "react-router-dom";
 import { useChat } from "../contexts/ChatContextProvider";
 import { useAuth } from "../contexts/AuthContextProvider";
+import EditMsg from "./EditMsg";
 
 const drawerWidth = "30%";
 
@@ -78,9 +79,7 @@ export default function ListChat() {
         <Box
           component="main"
           sx={{ flexGrow: 1, bgcolor: "#938888", p: 3, height: "100vh" }}
-        >
-          <div>hello</div>
-        </Box>
+        ></Box>
       ) : (
         <ChatUser />
       )}
@@ -105,7 +104,10 @@ export default function ListChat() {
               </SearchIconWrapper>
               <StyledInputBase inputProps={{ "aria-label": "search" }} />
             </Search>
-            <ListItemButton>
+            <ListItemButton
+
+            // display="flex"
+            >
               <MenuIcon sx={{ marginLeft: 5 }} color={"action"} />
             </ListItemButton>
             <Button
@@ -119,7 +121,7 @@ export default function ListChat() {
         <Toolbar />
         <List sx={{ bgcolor: "#EDDBDB", height: "100vh" }}>
           {[
-            "user name",
+            "Group",
             // "user name",
             // "user name",
             // "user name",
