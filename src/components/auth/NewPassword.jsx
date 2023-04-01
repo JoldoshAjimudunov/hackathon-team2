@@ -1,10 +1,5 @@
 import React from "react";
 import "./Auth.css";
-<link
-  href="//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti"
-  rel="stylesheet"
-  type="text/css"
-/>;
 
 const NewPassword = () => {
   return (
