@@ -1,16 +1,16 @@
-@import url(//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti);
+/* @import url(//db.onlinewebfonts.com/c/1ef64e980bfacae78e555760cec7515a?family=Sprite+Graffiti); */
 @font-face {
   font-family: "Sprite Graffiti";
-  src: url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.eot");
-  src: url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.eot?#iefix")
+  src: url("https://db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.eot");
+  src: url("https://db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.eot?#iefix")
       format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.woff2")
+    url("https://db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.woff2")
       format("woff2"),
-    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.woff")
+    url("https://db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.woff")
       format("woff"),
-    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.ttf")
+    url("https://db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.ttf")
       format("truetype"),
-    url("//db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.svg#Sprite Graffiti")
+    url("https://db.onlinewebfonts.com/t/1ef64e980bfacae78e555760cec7515a.svg#Sprite Graffiti")
       format("svg");
 }
 .container {
