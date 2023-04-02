@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import "./Auth.css";
 import { Link } from "react-router-dom";
-{
-}
 
 const Register = () => {
   const { register } = useAuth();
